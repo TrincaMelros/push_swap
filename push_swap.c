@@ -6,32 +6,11 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/05/24 12:34:43 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:59:54 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	push(int **a, int **b, int i)
-{
-	int f;
-
-	f = 0;
-	while (f < i)
-	{
-		a[f] = a[f + 1];
-		f++;
-	}
-}
-
-void	swap(int **a)
-{
-	int *temp;
-
-	temp = a[0];
-	a[0] = a[1];
-	a[1] = temp;
-}
 
 void	start_stack(int **a, int i)
 {
@@ -88,7 +67,10 @@ int	main(int argc, char **argv)
 	start_stack(stackB, i);
 	printer(stackA, stackB, i);
 	printf("________________\n");
-	swap(stackA);
+	reverse_rotate(stackA, i);
 	printer(stackA, stackB, i);
+	rotate(stackA, i);
+	printer(stackA, stackB, i);
+	printf("\n%d\n", i);
 	return (0);
 }
