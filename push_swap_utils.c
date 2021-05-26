@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:26:24 by malmeida          #+#    #+#             */
-/*   Updated: 2021/05/25 16:42:04 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/05/26 12:56:30 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,19 @@ void	stack_printer(int **a, int **b, int i)
 		j++;
 	}
 	printf("\nA __ B\n");
+}
+
+int		ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	if (!s1[i] && !s2[i])
+		return (1);
+	else
+		return (0);
 }
 
 int		ft_atoi(const char *nptr)
