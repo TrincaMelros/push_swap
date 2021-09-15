@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:52:14 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/15 11:55:14 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/15 11:58:09 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	operations(int **stackA, int **stackB, int i, char *op)
 		reverse_rotate(stackA, i);
 		reverse_rotate(stackB, i);
 	}
+	printf("\n%s\n", op);
 }
 
 void	swap(int **a)

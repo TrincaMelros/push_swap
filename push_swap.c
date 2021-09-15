@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/15 11:54:44 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/15 11:58:12 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ int	main(int argc, char **argv)
 	operations(stackA, stackB, i, "pa");
 	operations(stackA, stackB, i, "pa");
 	stack_printer(stackA, stackB, i);
+	printf("________________\n");
 	operations(stackA, stackB, i, "rrr");
 	stack_printer(stackA, stackB, i);
+	printf("________________\n");
 	return (0);
 }
