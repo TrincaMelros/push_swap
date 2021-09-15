@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:52:14 by malmeida          #+#    #+#             */
-/*   Updated: 2021/05/26 14:48:08 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/15 11:55:14 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,19 @@ void	push(int **a, int **b, int i)
 void	rotate(int **a, int i)
 {
 	int	f;
+	int	j;
 	int	*temp;
 
-	f = 0;
+	j = 0;
+	while (a[j])
+		j++;
 	temp = a[0];
-	while (f < i - 1)
+	f = 0;
+	while (j > 1)
 	{
 		a[f] = a[f + 1];
 		f++;
+		j--;
 	}
 	a[f] = temp;
 }
@@ -97,13 +102,17 @@ void	rotate(int **a, int i)
 void	reverse_rotate(int **a, int i)
 {
 	int	*temp;
+	int	j;
 
-	i -= 1;
-	temp = a[i];
-	while (i > 0)
+	j = 0;
+	while (a[j])
+		j++;
+	j--;
+	temp = a[j];
+	while (j > 0)
 	{
-		a[i] = a[i - 1];
-		i--;
+		a[j] = a[j - 1];
+		j--;
 	}
 	a[0] = temp;
 }
