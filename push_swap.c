@@ -6,30 +6,59 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/17 13:09:00 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/18 14:31:44 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_smallest(int z, int *arg_array, int *zero_array)
+/*
+**								# Smallest Function #
+**
+**			This function searches for the smallest number in the array. It
+**			also keeps track of which numbers have already been "found" through
+**			the zero_array, making sure they're not included in the next
+**			searches. It returns an int f, which is the position in the array
+**			of the smallest argument.
+*/
+
+int	is_smallest(int args, int *arg_array, int **zero_array)
 {
 	int	i;
+	int	f;
+	int	small;
 
 	i = 0;
-	while (arg_array[i])
+	while ((*zero_array)[i] == 1)
+		i++;
+	f = i;
+	small = arg_array[i];
+	i++;
+	while (i < args)
 	{
-		while (zero_array[i] == 1)
-			i++;
-		if (z <= arg_array[i])
-			i++;
-		else
-			return (0);
+		if (arg_array[i] < small && (*zero_array)[i] == 0)
+		{
+			small = arg_array[i];
+			f = i;
+		}
+	i++;
 	}
-	return (1);
+	return (f);
 }
 
-void	array_sorter(int a, int *zero_array, int *arg_array, int **stack_array)
+/*
+**								# Array Sorter #
+**
+**			This function receives the three arrays already created, and
+**			replaces the numbers on stack_array by their 
+**			{0, 1, 2, ..., N} equivalent, while maintaining their position
+**			in the array. is_smallest() is called to find each number in
+**			an ascending order. When one is found, it is placed on stack_array
+**			and its position is changed on zero_array to 1, so we know not to
+**			consider the number in the next search.
+*/
+
+void	array_sorter(int a, int **zero_array, int *arg_array, int **stack_array)
 {
 	int	i;
 	int	f;
@@ -37,17 +66,26 @@ void	array_sorter(int a, int *zero_array, int *arg_array, int **stack_array)
 	i = 0;
 	while (i < a)
 	{
-		f = 0;
-		while (arg_array[f])
-		{
-			if (is_smallest(arg_array[f]) && !zero_array[f])
-			{
-				stack_array[f] = i;
-			}
-		}
+		f = is_smallest(a, arg_array, zero_array);
+		(*stack_array)[f] = i;
+		(*zero_array)[f] = 1;
 		i++;
 	}
 }
+
+/*
+**								# Array Starter #
+**
+**			This function receives the array filled with the args and prepares
+**			its sorting. It creates two additional arrays, one (zero_array) 
+**			that is filled with 0s and will be used to keep track of what
+**			numbers are already sorted, and another (arg_array) that will save
+**			the original position of the args.
+**
+**			It will then call on array_sorter() to actually organize and sort
+**			the args to {0, 1, 2, ..., N} and keep them in their original
+**			position.
+*/
 
 void	array_starter(int args, int **stack_array)
 {
@@ -58,22 +96,33 @@ void	array_starter(int args, int **stack_array)
 	zero_array = malloc(sizeof(int) * args);
 	arg_array = malloc(sizeof(int) * args);
 	i = -1;
-	while (++i < args)
-	{
+ 	while (++i < args)
+ 	{
 		zero_array[i] = 0;
-		arg_array[i] = (*stack_array)[i];
-	}
-	array_sorter(args, zero_array, arg_array, stack_array);
-	free(zero_array);
+ 		arg_array[i] = (*stack_array)[i];
+ 	}
+ 	array_sorter(args, &zero_array, arg_array, stack_array);
+ 	free(zero_array);
 	free(arg_array);
 }
 
+/*
+**								# Main Function #
+**
+**			The Push_Swap program aims to use two stacks to sort a list of
+**			integers. It uses a modified Radix Sort to achieve this.
+**
+**			The first step is to receive and parse the list of arguments,
+**			making sure the list is valid (STILL NEED TO DO THIS).
+**			
+**			After the arguments are validated, we need to convert the args to
+**			a list of {0, 1, 2, ..., N}. This is done through the array_sorter
+**			function and its childs, and it will help in applying the Radix
+**			sort algorithm.
+*/
+
 int	main(int argc, char **argv)
 {
-/*
-	int	**stackA;
-	int	**stackB;
-*/
 	int	*arg_array;
 	int	i;
 
@@ -82,35 +131,8 @@ int	main(int argc, char **argv)
 	while (++i < argc - 1)
 		arg_array[i] = ft_atoi(argv[1 + i]);
 	array_starter(argc - 1, &arg_array);
-	i = 0;
-/*
-	i = 0;
-	while (i < argc - 1)
-	{
-		printf("Arg %d is %d\n", i, arg_array[i]);
-		i++;
-	}
-	stackA = malloc(sizeof(int *) * (argc - 1));
-	if (!stackA)
-		return (0);
-	stackB = malloc(sizeof(int *) * (argc - 1));
-	if (!stackB)
-		return (0);
-	while (argc - 1 - i)
-	{
-		stackA[i] = add_stack(ft_atoi(argv[1 + i]));
-		i++;
-	}
-	start_stack(stackB, i);
-	stack_printer(stackA, stackB, i);
-	printf("________________\n");
-	operations(stackA, stackB, i, "pa");
-	operations(stackA, stackB, i, "pa");
-	stack_printer(stackA, stackB, i);
-	printf("________________\n");
-	operations(stackA, stackB, i, "rrr");
-	stack_printer(stackA, stackB, i);
-	printf("________________\n");
-*/
+	i = -1;
+	while (++i < argc - 1)
+		printf("Arg n%d is %d\n", i, arg_array[i]);
 	return (0);
 }

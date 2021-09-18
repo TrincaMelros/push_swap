@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:26:24 by malmeida          #+#    #+#             */
-/*   Updated: 2021/05/26 12:56:30 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/18 13:20:59 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ft_strcmp(char *s1, char *s2)
 		return (0);
 }
 
-int		ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	sign;
@@ -83,7 +83,7 @@ int		ft_atoi(const char *nptr)
 	while (nptr[i] && (nptr[i] >= '0' && nptr[i] <= '9'))
 	{
 		number *= 10;
-		number =+ nptr[i] - '0';
+		number += nptr[i] - '0';
 		i++;
 	}
 	return (number * sign);
