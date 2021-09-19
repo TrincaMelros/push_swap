@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:26:24 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/19 11:40:04 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/19 12:04:55 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	stack_printer(int **a, int **b, int i)
 	while (j < i)
 	{
 		if (a[j] != NULL && b[j] == NULL)
-			printf("%d __ N\n", (*a)[j]);
+			printf("%d __ N\n", *a[j]);
 		else if (a[j] == NULL && b[j] != NULL)
-			printf("N __ %d\n", (*b)[j]);
+			printf("N __ %d\n", *b[j]);
 		else if (a[j] == NULL && b[j] == NULL)
 			printf("N __ N\n");
 		else
-			printf("%d __ %d\n", (*a)[j], (*b)[j]);
+			printf("%d __ %d\n", *a[j], *b[j]);
 		j++;
 	}
 	printf("\nA __ B\n");

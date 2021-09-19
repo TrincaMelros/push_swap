@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/19 11:40:56 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/19 12:05:33 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	array_sorter(int a, int **zero_array, int *arg_array, int **stack_array)
 **			position.
 */
 
-void	array_starter(int args, int **stack_array)
+void	array_starter(int args, int ***stack_array)
 {
 	int	*zero_array;
 	int	*arg_array;
@@ -99,9 +99,9 @@ void	array_starter(int args, int **stack_array)
  	while (++i < args)
  	{
 		zero_array[i] = 0;
- 		arg_array[i] = *stack_array[i];
+ 		arg_array[i] = **stack_array[i];
  	}
- 	array_sorter(args, &zero_array, arg_array, stack_array);
+ 	array_sorter(args, &zero_array, arg_array, *stack_array);
  	free(zero_array);
 	free(arg_array);
 }
@@ -133,10 +133,12 @@ int	main(int argc, char **argv)
 	while (++i < argc - 1)
 		StackA[i] = add_stack(ft_atoi(argv[1 + i]));
 	start_stack(StackB, i);
-	array_starter(argc - 1, StackA);
+	array_starter(argc - 1, &StackA);
 	i = -1;
 	while (++i < argc - 1)
-		printf("Arg n%d is %d\n", i, (*StackA)[i]);
+		printf("Arg n%d is %d\n", i, *StackA[i]);
+	stack_printer(StackA, StackB, argc - 1);
+	operations(StackA, StackB, argc - 1, "sa");
 	stack_printer(StackA, StackB, argc - 1);
 	return (0);
 }
