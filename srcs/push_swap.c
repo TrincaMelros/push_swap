@@ -6,11 +6,11 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/18 14:31:44 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/19 11:40:56 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 **								# Smallest Function #
@@ -99,7 +99,7 @@ void	array_starter(int args, int **stack_array)
  	while (++i < args)
  	{
 		zero_array[i] = 0;
- 		arg_array[i] = (*stack_array)[i];
+ 		arg_array[i] = *stack_array[i];
  	}
  	array_sorter(args, &zero_array, arg_array, stack_array);
  	free(zero_array);
@@ -123,16 +123,20 @@ void	array_starter(int args, int **stack_array)
 
 int	main(int argc, char **argv)
 {
-	int	*arg_array;
+	int	**StackA;
+	int	**StackB;
 	int	i;
 
-	i = -1;
-	arg_array = malloc(sizeof(int) * (argc - 1));
-	while (++i < argc - 1)
-		arg_array[i] = ft_atoi(argv[1 + i]);
-	array_starter(argc - 1, &arg_array);
+	StackA = malloc(sizeof(int *) * (argc - 1));
+	StackB = malloc(sizeof(int *) * (argc - 1));
 	i = -1;
 	while (++i < argc - 1)
-		printf("Arg n%d is %d\n", i, arg_array[i]);
+		StackA[i] = add_stack(ft_atoi(argv[1 + i]));
+	start_stack(StackB, i);
+	array_starter(argc - 1, StackA);
+	i = -1;
+	while (++i < argc - 1)
+		printf("Arg n%d is %d\n", i, (*StackA)[i]);
+	stack_printer(StackA, StackB, argc - 1);
 	return (0);
 }

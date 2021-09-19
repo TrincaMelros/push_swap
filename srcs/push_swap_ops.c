@@ -6,11 +6,11 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:52:14 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/15 11:58:09 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/19 11:02:18 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	operations(int **stackA, int **stackB, int i, char *op)
 {

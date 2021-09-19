@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:53:55 by malmeida          #+#    #+#             */
-/*   Updated: 2021/05/26 12:53:43 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/19 11:04:33 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "../libft/includes/libft.h"
 
 void	swap(int **a);
 void	push(int **a, int **b, int i);
@@ -27,6 +28,5 @@ void	start_stack(int **a, int i);
 void	*add_stack(int i);
 void	stack_printer(int **a, int **b, int i);
 int		ft_strcmp(char *s1, char *s2);
-int		ft_atoi(const char *nptr);
 
 #endif
