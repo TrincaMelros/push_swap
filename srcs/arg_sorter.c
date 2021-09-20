@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 11:03:42 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 23:35:08 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 23:39:55 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void	arg_checker(char **args, int size)
 			i++;
 		else
 		{
-			ft_putstr_fd("Error", 1);
+			ft_putstr_fd("Error\n", 1);
 			exit(1);
 		}
 	}
