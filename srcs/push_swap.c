@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 11:19:14 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 11:30:30 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 **			making sure the list is valid (STILL NEED TO DO THIS).
 **			
 **			After the arguments are validated, we need to convert the args to
-**			a list of {0, 1, 2, ..., N}. This is done through the array_sorter
+**			a list of {0, 1, 2, ..., N}. This is done through the array_starter
 **			function and its childs, and it will help in applying the Radix
 **			sort algorithm.
 */
