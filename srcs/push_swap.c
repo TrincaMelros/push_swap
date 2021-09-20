@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/19 12:43:31 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 10:46:18 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,13 @@ void	array_starter(int args, int **stack_array)
 	free(arg_array);
 }
 
+void	init_stacks(t_stacks *stacks, int i)
+{
+	stacks->stackA = malloc(sizeof(int *) * i);
+	stacks->stackB = malloc(sizeof(int *) * i);
+	stacks->size = i;
+}
+
 /*
 **								# Main Function #
 **
@@ -123,22 +130,20 @@ void	array_starter(int args, int **stack_array)
 
 int	main(int argc, char **argv)
 {
+	t_stacks	stacks;
 	int	*array;
-	int	**stackA;
-	int	**stackB;
 	int	i;
 
 	array = malloc(sizeof(int) * (argc - 1));
-	stackA = malloc(sizeof(int *) * (argc - 1));
-	stackB = malloc(sizeof(int *) * (argc - 1));
 	i = -1;
 	while (++i < argc - 1)
 		array[i] = ft_atoi(argv[1 + i]);
 	array_starter(i, &array);
-	start_stack(stackB, i);
+	init_stacks(&stacks, i);
+	start_stack(stacks.stackB, i);
 	i = -1;
 	while (++i < argc - 1)
-		stackA[i] = add_stack(array[i]);
-	stack_printer(stackA, stackB, i);
+		stacks.stackA[i] = add_stack(array[i]);
+	stack_printer(stacks.stackA, stacks.stackB, i);
 	return (0);
 }

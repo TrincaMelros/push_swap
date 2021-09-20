@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:53:55 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/19 11:04:33 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 10:25:39 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libft/includes/libft.h"
+
+typedef struct	s_stacks {
+	int	**stackA;
+	int	**stackB;
+	int	size;
+}				t_stacks;
 
 void	swap(int **a);
 void	push(int **a, int **b, int i);
