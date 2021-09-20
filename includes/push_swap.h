@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:53:55 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 11:18:56 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 14:00:10 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	array_starter(int args, int **stack_array);
 
  /* Stack Operations */
 void	swap(int **a);
-void	push(int **a, int **b, int i);
-void	rotate(int **a, int i);
-void	reverse_rotate(int **a, int i);
-void	operations(int **stackA, int **stackB, int i, char *op);
+void	push(int **a, int **b, int size);
+void	rotate(int **a, int size);
+void	reverse_rotate(int **a, int size);
+void	operations(t_stacks *stacks, char *op);
 
  /* Stack Utilities */
 void	start_stack(int **a, int i);
