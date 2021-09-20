@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:53:55 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 10:25:39 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 11:18:56 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,25 @@ typedef struct	s_stacks {
 	int	size;
 }				t_stacks;
 
+ /* Arguments sorter */
+int		is_smallest(int args, int *arg_array, int **zero_array);
+void	array_sorter(int a, int **zero_array, int *arg_array, int **stack_array);
+void	array_starter(int args, int **stack_array);
+
+ /* Stack Operations */
 void	swap(int **a);
 void	push(int **a, int **b, int i);
 void	rotate(int **a, int i);
 void	reverse_rotate(int **a, int i);
 void	operations(int **stackA, int **stackB, int i, char *op);
 
+ /* Stack Utilities */
 void	start_stack(int **a, int i);
 void	*add_stack(int i);
-void	stack_printer(int **a, int **b, int i);
+void	stack_printer(t_stacks stacks);
+void	init_stacks(t_stacks *stacks, int i);
+
+ /* Utilities */
 int		ft_strcmp(char *s1, char *s2);
 
 #endif

@@ -6,11 +6,18 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:26:24 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/19 12:04:55 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 11:24:48 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/*
+**								# Start Stack #
+**
+**			This function is used to start stackB, which is filled with null
+**			pointers.
+*/
 
 void	start_stack(int **a, int i)
 {
@@ -21,6 +28,13 @@ void	start_stack(int **a, int i)
 	}
 }
 
+/*
+**								# Add Stack #
+**
+**			Receives an int and returns it as a pointer. Useful to add args
+**			to a stack, which is an array of pointers.
+*/
+
 void	*add_stack(int i)
 {
 	int	*x;
@@ -30,35 +44,42 @@ void	*add_stack(int i)
 	return (x);
 }
 
-void	stack_printer(int **a, int **b, int i)
+/*
+**								# Stack Printer #
+**
+**			Receives the stacks and prints them in a nice visualizing format
+*/
+
+void	stack_printer(t_stacks stacks)
 {
 	int	j;
 
 	j = 0;
-	while (j < i)
+	while (j < stacks.size)
 	{
-		if (a[j] != NULL && b[j] == NULL)
-			printf("%d __ N\n", *a[j]);
-		else if (a[j] == NULL && b[j] != NULL)
-			printf("N __ %d\n", *b[j]);
-		else if (a[j] == NULL && b[j] == NULL)
+		if (stacks.stackA[j] != NULL && stacks.stackB[j] == NULL)
+			printf("%d __ N\n", *(stacks.stackA)[j]);
+		else if (stacks.stackA[j] == NULL && stacks.stackB[j] != NULL)
+			printf("N __ %d\n", *(stacks.stackB)[j]);
+		else if (stacks.stackA[j] == NULL && stacks.stackB[j] == NULL)
 			printf("N __ N\n");
 		else
-			printf("%d __ %d\n", *a[j], *b[j]);
+			printf("%d __ %d\n", *(stacks.stackA)[j], *(stacks.stackB)[j]);
 		j++;
 	}
 	printf("\nA __ B\n");
 }
 
-int		ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+/*
+**								# Initialize Stacks #
+**
+**			This functions receives the empty stacks structure and initializes
+**			its contents.
+*/
 
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] && s2[i])
-		i++;
-	if (!s1[i] && !s2[i])
-		return (1);
-	else
-		return (0);
+void	init_stacks(t_stacks *stacks, int i)
+{
+	stacks->stackA = malloc(sizeof(int *) * i);
+	stacks->stackB = malloc(sizeof(int *) * i);
+	stacks->size = i;
 }
