@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 16:07:07 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 23:35:48 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ int	main(int argc, char **argv)
 	i = -1;
 	while (++i < argc - 1)
 		array[i] = ft_atoi(argv[1 + i]);
+	arg_checker(argv, i);
+	is_duplicate(array, i);
 	array_starter(i, &array);
 	init_stacks(&stacks, i);
 	i = -1;
 	while (++i < argc - 1)
-		stacks.stackA[i] = add_stack(array[i]);
+		stacks.sta[i] = add_stack(array[i]);
 	if (is_sorted(&stacks))
-		return(0);
+		return (0);
 	stack_solver(&stacks);
 	return (0);
 }

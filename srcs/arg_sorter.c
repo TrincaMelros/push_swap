@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 11:03:42 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 15:08:25 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 23:35:08 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,39 @@ void	array_starter(int args, int **stack_array)
 	array_sorter(args, &zero_array, arg_array, stack_array);
 	free(zero_array);
 	free(arg_array);
+}
+
+/*
+**								# Arg Checker #
+**
+**			This function checks if the arguments passed to push swap
+**			are a number, and if they are, they aren't bigger than an int.
+**
+*/
+
+void	arg_checker(char **args, int size)
+{
+	int	i;
+
+	i = 1;
+	while (i < size)
+	{
+		if (ft_atoi(args[i]) > 2147483647 || ft_atoi(args[i]) < -2147483648)
+		{
+			ft_putstr_fd("Error\n", 1);
+			exit(1);
+		}
+		i++;
+	}
+	i = 1;
+	while (i < size)
+	{
+		if (is_valid(args[i]) == 1)
+			i++;
+		else
+		{
+			ft_putstr_fd("Error", 1);
+			exit(1);
+		}
+	}
 }

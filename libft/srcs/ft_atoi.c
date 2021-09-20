@@ -6,15 +6,15 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:59:21 by malmeida          #+#    #+#             */
-/*   Updated: 2021/08/31 12:03:03 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 23:05:41 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	sign;
-	int	number;
+	long int	number;
 
 	i = 0;
 	while (nptr[i] && ((nptr[i] >= 9 && nptr[i] <= 13) || (nptr[i] == 32)))

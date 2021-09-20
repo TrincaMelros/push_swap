@@ -6,11 +6,34 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:26:24 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 15:58:14 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 22:22:41 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/*
+**								# Is Sorted #
+**
+**			This function simply takes a stack and checks if its sorted. I use
+**			it right at the beginning of the program to make sure instructions
+**			are actually needed. If it is sorted, the program ends right away.
+*/
+
+int	is_sorted(t_stacks *stacks)
+{
+	int	i;
+
+	i = stacks->size - 1;
+	while (i)
+	{
+		if (*(stacks->sta)[i] > *(stacks->sta)[i - 1])
+			i--;
+		else
+			return (0);
+	}
+	return (1);
+}
 
 /*
 **								# Start Stack #
@@ -57,14 +80,14 @@ void	stack_printer(t_stacks stacks)
 	j = 0;
 	while (j < stacks.size)
 	{
-		if (stacks.stackA[j] != NULL && stacks.stackB[j] == NULL)
-			printf("%d __ N\n", *(stacks.stackA)[j]);
-		else if (stacks.stackA[j] == NULL && stacks.stackB[j] != NULL)
-			printf("N __ %d\n", *(stacks.stackB)[j]);
-		else if (stacks.stackA[j] == NULL && stacks.stackB[j] == NULL)
+		if (stacks.sta[j] != NULL && stacks.stb[j] == NULL)
+			printf("%d __ N\n", *(stacks.sta)[j]);
+		else if (stacks.sta[j] == NULL && stacks.stb[j] != NULL)
+			printf("N __ %d\n", *(stacks.stb)[j]);
+		else if (stacks.sta[j] == NULL && stacks.stb[j] == NULL)
 			printf("N __ N\n");
 		else
-			printf("%d __ %d\n", *(stacks.stackA)[j], *(stacks.stackB)[j]);
+			printf("%d __ %d\n", *(stacks.sta)[j], *(stacks.stb)[j]);
 		j++;
 	}
 	printf("\nA __ B\n");
@@ -80,8 +103,8 @@ void	stack_printer(t_stacks stacks)
 
 void	init_stacks(t_stacks *stacks, int i)
 {
-	stacks->stackA = malloc(sizeof(int *) * i);
-	stacks->stackB = malloc(sizeof(int *) * i);
+	stacks->sta = malloc(sizeof(int *) * i);
+	stacks->stb = malloc(sizeof(int *) * i);
 	stacks->size = i;
-	start_stack(stacks->stackB, i);
+	start_stack(stacks->stb, i);
 }
