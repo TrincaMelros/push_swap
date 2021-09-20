@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 14:00:02 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 16:04:29 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 int	main(int argc, char **argv)
 {
 	t_stacks	stacks;
-	int	*array;
-	int	i;
+	int			*array;
+	int			i;
 
 	array = malloc(sizeof(int) * (argc - 1));
 	i = -1;
@@ -39,10 +39,14 @@ int	main(int argc, char **argv)
 		array[i] = ft_atoi(argv[1 + i]);
 	array_starter(i, &array);
 	init_stacks(&stacks, i);
-	start_stack(stacks.stackB, i);
 	i = -1;
 	while (++i < argc - 1)
 		stacks.stackA[i] = add_stack(array[i]);
-	stack_printer(stacks);
+	if (is_sorted(&stacks))
+	{
+		printf("TA SORTED CARALHO");
+		return(0);
+	}
+	stack_solver(&stacks);
 	return (0);
 }

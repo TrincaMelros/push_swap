@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:26:24 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 11:24:48 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 15:58:14 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void	stack_printer(t_stacks stacks)
 **								# Initialize Stacks #
 **
 **			This functions receives the empty stacks structure and initializes
-**			its contents.
+**			its contents. It also calls on start_stack to fill stackB with
+**			null pointers.
 */
 
 void	init_stacks(t_stacks *stacks, int i)
@@ -82,4 +83,5 @@ void	init_stacks(t_stacks *stacks, int i)
 	stacks->stackA = malloc(sizeof(int *) * i);
 	stacks->stackB = malloc(sizeof(int *) * i);
 	stacks->size = i;
+	start_stack(stacks->stackB, i);
 }

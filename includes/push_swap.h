@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:53:55 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 14:00:10 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 15:56:18 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void	start_stack(int **a, int i);
 void	*add_stack(int i);
 void	stack_printer(t_stacks stacks);
 void	init_stacks(t_stacks *stacks, int i);
+
+/* Stack Solver */
+int		is_sorted(t_stacks *stacks);
+void	stack_solver(t_stacks *stacks);
+void	radix_sort(t_stacks *stacks);
 
  /* Utilities */
 int		ft_strcmp(char *s1, char *s2);

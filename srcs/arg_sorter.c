@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 11:03:42 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 11:04:41 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 15:08:25 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	is_smallest(int args, int *arg_array, int **zero_array)
 			small = arg_array[i];
 			f = i;
 		}
-	i++;
+		i++;
 	}
 	return (f);
 }
@@ -96,12 +96,12 @@ void	array_starter(int args, int **stack_array)
 	zero_array = malloc(sizeof(int) * args);
 	arg_array = malloc(sizeof(int) * args);
 	i = -1;
- 	while (++i < args)
- 	{
+	while (++i < args)
+	{
 		zero_array[i] = 0;
- 		arg_array[i] = (*stack_array)[i];
- 	}
- 	array_sorter(args, &zero_array, arg_array, stack_array);
- 	free(zero_array);
+		arg_array[i] = (*stack_array)[i];
+	}
+	array_sorter(args, &zero_array, arg_array, stack_array);
+	free(zero_array);
 	free(arg_array);
 }
