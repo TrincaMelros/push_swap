@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:53:55 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 23:38:58 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/21 00:23:25 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	init_stacks(t_stacks *stacks, int i);
 /* Stack Solver */
 void	stack_solver(t_stacks *stacks);
 void	three_sorter(t_stacks *stacks);
+void	four_sorter(t_stacks *stacks);
+void	five_sorter(t_stacks *stacks);
 void	radix_sort(t_stacks *stacks);
 
 /* Utilities */

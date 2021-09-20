@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 14:51:03 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 22:26:26 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/21 00:22:41 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ void	stack_solver(t_stacks *stacks)
 		operations1(stacks, "sa");
 	else if (stacks->size == 3)
 		three_sorter(stacks);
+	else if (stacks->size == 4)
+		four_sorter(stacks);
+	else if (stacks->size == 5)
+		five_sorter(stacks);
 	else if (stacks->size > 5)
 		radix_sort(stacks);
 }
@@ -68,6 +72,51 @@ void	three_sorter(t_stacks *stacks)
 		operations1(stacks, "sa");
 		operations2(stacks, "rra");
 	}
+}
+
+/*
+**								# Four Sorter #
+**
+**			Four sorter works in a very similar way to three sorter, but with
+**			an extra twist. It will look for the lowest number, and push it
+**			to stackB. It will then use the three sorter method to sort stackA,
+**			and then push the lowest number back to stackA.
+*/
+
+void	four_sorter(t_stacks *stacks)
+{
+	while (*(stacks->sta)[0] != 0)
+		operations2(stacks, "ra");
+	operations1(stacks, "pb");
+	three_sorter(stacks);
+	operations1(stacks, "pa");
+}
+
+/*
+**								# Five Sorter #
+**
+**			This function works very similarly to the previous function,
+**			Four sorter, but instead of pushing the lowest number to stackB,
+**			it pushes the 2 lowest numbers.
+*/
+
+void	five_sorter(t_stacks *stacks)
+{
+	int	i;
+
+	i = 0;
+	while (i < 2)
+	{
+		while (*(stacks->sta)[0] != 0 && *(stacks->sta)[0] != 1)
+			operations2(stacks, "ra");
+		operations1(stacks, "pb");
+		i++;
+	}
+	three_sorter(stacks);
+	if (*(stacks->stb)[0] == 0)
+		operations1(stacks, "sb");
+	operations1(stacks, "pa");
+	operations2(stacks, "pa");
 }
 
 /*
