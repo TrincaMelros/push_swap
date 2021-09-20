@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 16:04:29 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 16:07:07 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ int	main(int argc, char **argv)
 	while (++i < argc - 1)
 		stacks.stackA[i] = add_stack(array[i]);
 	if (is_sorted(&stacks))
-	{
-		printf("TA SORTED CARALHO");
 		return(0);
-	}
 	stack_solver(&stacks);
 	return (0);
 }
