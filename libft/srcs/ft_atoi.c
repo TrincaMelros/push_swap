@@ -6,14 +6,14 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:59:21 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 23:05:41 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/20 23:53:36 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
+	int			i;
+	int			sign;
 	long int	number;
 
 	i = 0;
