@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:53:55 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/21 00:23:25 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:24:58 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,8 @@ void	operations2(t_stacks *stacks, char *op);
 void	is_duplicate(int *array, int size);
 int		is_valid(char *s);
 int		ft_strcmp(char *s1, char *s2);
+
+/* Free the Homies */
+void	garbage_collector(t_stacks *s, int f);
 
 #endif

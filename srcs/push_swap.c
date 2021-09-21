@@ -6,7 +6,7 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/20 23:35:48 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:23:56 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 	int			*array;
 	int			i;
 
+	if (argc < 3)
+		return (0);
 	array = malloc(sizeof(int) * (argc - 1));
 	i = -1;
 	while (++i < argc - 1)
@@ -44,8 +46,10 @@ int	main(int argc, char **argv)
 	i = -1;
 	while (++i < argc - 1)
 		stacks.sta[i] = add_stack(array[i]);
+	free(array);
 	if (is_sorted(&stacks))
-		return (0);
+		garbage_collector(&stacks, 1);
 	stack_solver(&stacks);
+	garbage_collector(&stacks, 0);
 	return (0);
 }
