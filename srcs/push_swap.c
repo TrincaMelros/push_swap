@@ -6,14 +6,14 @@
 /*   By: malmeida <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:32 by malmeida          #+#    #+#             */
-/*   Updated: 2021/09/21 14:23:56 by malmeida         ###   ########.fr       */
+/*   Updated: 2021/09/22 16:43:41 by malmeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /*
-**								# Main Function #
+**						# Main Function #
 **
 **			The Push_Swap program aims to use two stacks to sort a list of
 **			integers. It uses a modified Radix Sort to achieve this.
@@ -30,26 +30,14 @@
 int	main(int argc, char **argv)
 {
 	t_stacks	stacks;
-	int			*array;
-	int			i;
 
 	if (argc < 3)
 		return (0);
-	array = malloc(sizeof(int) * (argc - 1));
-	i = -1;
-	while (++i < argc - 1)
-		array[i] = ft_atoi(argv[1 + i]);
-	arg_checker(argv, i);
-	is_duplicate(array, i);
-	array_starter(i, &array);
-	init_stacks(&stacks, i);
-	i = -1;
-	while (++i < argc - 1)
-		stacks.sta[i] = add_stack(array[i]);
-	free(array);
+	if (arg_validation(argv, argc - 1))
+		return (error_message());
+	initialize_stacks(&stacks, argv, argc - 1);
 	if (is_sorted(&stacks))
-		garbage_collector(&stacks, 1);
-	stack_solver(&stacks);
-	garbage_collector(&stacks, 0);
-	return (0);
+		return (free_stack(&stacks, 1));
+	stack_sorter(&stacks);
+	return (free_stack(&stacks, 0));
 }
