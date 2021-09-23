@@ -1,15 +1,6 @@
 <h1 align="center"># push_swap</h1>
 
-
-To write a sorting algorithm is always a very important step in a coder’s life, because it
-is often the first encounter with the concept of complexity.
-
-The learning objectives of this project are rigor, use of C and use of basic algorithms.
-Especially looking at the complexity of these basic algorithms.
-
-Sorting values is simple. To sort them the fastest way possible is less simple, especially
-because from one integers configuration to another, the most efficient sorting algorithm
-can differ.
+This program aims to sort a list of integers using only two stacks and a limited move set. It uses a simple algorithm to solve lists of numbers up to 5 elements, and a radix sort algorithm to solve lists bigger than that. Below is a gif of the program in action using a visualizer.
 
 
 ![](push_swapper.gif)
