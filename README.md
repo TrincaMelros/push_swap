@@ -8,5 +8,6 @@ This program aims to sort a list of integers using only two stacks and a limited
 
 To compile:
 ` make`
+
 To run:
 `./push_swap <arguments>`
