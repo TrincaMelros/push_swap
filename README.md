@@ -1,4 +1,6 @@
-# push_swap
+<h1 align="center"># push_swap</h1>
+
+
 To write a sorting algorithm is always a very important step in a coder’s life, because it
 is often the first encounter with the concept of complexity.
 
@@ -11,4 +13,3 @@ can differ.
 
 
 ![](push_swapper.gif)
-<iframe src="https://giphy.com/embed/0QKIXxjKrvln111R02" width="480" height="478" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/0QKIXxjKrvln111R02">via GIPHY</a></p>
